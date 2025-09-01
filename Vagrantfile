@@ -7,10 +7,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.network "forwarded_port", guest: 8000, host: 8000
 
-  # -----------------------------
-  # BU SATIRI EKLE → host klasörünü VM'de /vagrant olarak gör
+  # Host klasörünü VM’e bağla
   config.vm.synced_folder ".", "/vagrant"
-  # -----------------------------
 
   config.vm.provision "shell", inline: <<-SHELL
     systemctl disable apt-daily.service
